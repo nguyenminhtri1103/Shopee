@@ -1,0 +1,135 @@
+/* SECTION Root setting */
+:root {
+    /* NOTE Default Color setting */
+    --primary-color: #f53e2d;
+    --secondary-color: #fe6433;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #bbb;
+    --hover-primary-color: #db1503;
+    --hover-white-color: #f6f6f6;
+    /* NOTE Default Height setting*/
+    --header-height: 130px;
+    --header-navbar-height: calc(var(--header-height) * 0.35);
+    --header-search-height: calc(var(--header-height) - var(--header-navbar-height));
+}
+* {
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+/* !SECTION */
+
+/* SECTION Grid setting */
+.grid {
+    width: 1500px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid__full-width {
+    width: 100%;
+}
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* !SECTION */
+
+/* SECTION Animation */
+/* NOTE Hiệu ứng nở rộng */
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+/* NOTE Hiệu ứng nở rộng và hiện dần */
+@keyframes growthFade {
+    from {
+        opacity: 0;
+        transform: scale(var(--growth-from));
+    }
+    to {
+        opacity: 1;
+        transform: scale(var(--growth-to));
+    }
+}
+/* NOTE Hiệu ứng hiện dần */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* !SECTION */
+
+/* SECTION Modal: Giao diện chiếm toàn bộ web cho form Đăng ký / Đăng nhập */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear 0.25s;
+    display: none;
+}
+.modal__overplay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__body {
+    position: relative;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    width: 500px;
+    /* Tự động căn giữa */
+    margin: auto;
+    /* Nếu lớp con tràn ra khỏi lớp cha, các phần tràn sẽ ẩn đi */
+    overflow: hidden;
+    --growth-from: 0;
+    --growth-to: 1;
+    animation: growth linear 0.25s;
+}
+/* !SECTION */
+
+/* SECTION Default button setting*/
+.btn {
+    min-width: 140px;
+    height: 36px;
+    line-height: 36px;
+    text-decoration: none;
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    outline: none;
+    cursor: pointer;
+}
+.btn--normal:hover {
+    background-color: #eee;
+}
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+.btn.btn--primary:hover{
+    background-color: var(--hover-primary-color);
+}
+.btn.btn--disabled {
+    color: #949494;
+    background-color: #c3c3c3;
+    cursor: none;
+}
+/* !SECTION */
